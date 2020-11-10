@@ -13,4 +13,4 @@ $ npx npm run dev
 打开 http://localhost:8080/ 即可看到一个 Vue 文档风格的网站
 
 # GitHub Pages
-https://swappet.github.io/acu.fund-books
+https://swappet.github.io/acu.fund-books/
