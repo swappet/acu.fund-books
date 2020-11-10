@@ -15,11 +15,11 @@ module.exports = {
       {text: '参考', link: '/refers/'},
       {text: '官网', link: 'https://acu.fund'}      
     ],
-    sidebar: [
+    sidebar: [ // 侧边栏配置
       '/',
       '/git-manual/',
       ['/git-manual/gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
-    ], // 侧边栏配置
-    sidebarDepth: 2, // 侧边栏显示2级
+    ],
+    sidebarDepth: 2 // 侧边栏显示2级
   }
 };
