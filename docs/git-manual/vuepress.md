@@ -250,3 +250,20 @@ deploy:
 
 设置 travis 的环境变量 `$GITHUB_TOKEN`：
 https://docs.travis-ci.com/user/deployment/pages/#setting-the-github-token
+
+也可以加密 `$GITHUB_TOKEN`：
+```
+$ sudo gem install travis
+$ travis encrypt GITHUB_TOKEN=secret-value-of-github-token
+secure: ".... encrypted data ...."
+```
+把这一行加入.travis.yml:
+```
+env:
+  global:
+    - secure: ".... encrypted data ...."
+```
+本里面就可以使用环境变量 $GITHUB_TOKEN 了，Travis 会在运行时自动对它解密。
+
+travis encrypt命令的--add参数会把输出自动写入.travis.yml，省掉了修改env字段的步骤。
+`$ travis encrypt GITHUB_TOKEN=secret-value-of-github-token --add`
