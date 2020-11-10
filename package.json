@@ -4,10 +4,10 @@
   "description": "blockchain and open source book of ACU.Fund with docsify and github.io base on WTFPL.",
   "main": "index.js",
   "scripts": {
-    "start": "vuepress dev docs",
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "deploy": "bash deploy.sh" 
+    "docs:start": "vuepress dev docs",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "bash deploy.sh" 
   },
   "repository": {
     "type": "git",
