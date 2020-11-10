@@ -13,7 +13,7 @@
     <meta http-quiv="pragma" cotent="no-cache,must-revalidate">
     <meta http-quiv="expires" cotent="0">
     
-    <link rel="preload" href="/acu.fund-books/assets/css/0.styles.7625d2ff.css" as="style"><link rel="preload" href="/acu.fund-books/assets/js/app.6832a92e.js" as="script"><link rel="preload" href="/acu.fund-books/assets/js/2.67d873fc.js" as="script"><link rel="preload" href="/acu.fund-books/assets/js/10.38c52b8d.js" as="script"><link rel="prefetch" href="/acu.fund-books/assets/js/3.e48d6748.js"><link rel="prefetch" href="/acu.fund-books/assets/js/4.f33bed16.js"><link rel="prefetch" href="/acu.fund-books/assets/js/5.c0ac1c3a.js"><link rel="prefetch" href="/acu.fund-books/assets/js/6.9d473758.js"><link rel="prefetch" href="/acu.fund-books/assets/js/7.ccf54293.js"><link rel="prefetch" href="/acu.fund-books/assets/js/8.edef5d65.js"><link rel="prefetch" href="/acu.fund-books/assets/js/9.d6f03f70.js">
+    <link rel="preload" href="/acu.fund-books/assets/css/0.styles.7625d2ff.css" as="style"><link rel="preload" href="/acu.fund-books/assets/js/app.3d133664.js" as="script"><link rel="preload" href="/acu.fund-books/assets/js/2.67d873fc.js" as="script"><link rel="preload" href="/acu.fund-books/assets/js/10.ddd521e0.js" as="script"><link rel="prefetch" href="/acu.fund-books/assets/js/3.e48d6748.js"><link rel="prefetch" href="/acu.fund-books/assets/js/4.f33bed16.js"><link rel="prefetch" href="/acu.fund-books/assets/js/5.c0ac1c3a.js"><link rel="prefetch" href="/acu.fund-books/assets/js/6.9d473758.js"><link rel="prefetch" href="/acu.fund-books/assets/js/7.80c39c4e.js"><link rel="prefetch" href="/acu.fund-books/assets/js/8.edef5d65.js"><link rel="prefetch" href="/acu.fund-books/assets/js/9.d6f03f70.js">
     <link rel="stylesheet" href="/acu.fund-books/assets/css/0.styles.7625d2ff.css">
   </head>
   <body>
@@ -186,7 +186,14 @@ deploy:
   on:
     branch: master
 </code></pre></div><p>设置 travis 的环境变量 <code>$GITHUB_TOKEN</code>：
-https://docs.travis-ci.com/user/deployment/pages/#setting-the-github-token</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
-    <script src="/acu.fund-books/assets/js/app.6832a92e.js" defer></script><script src="/acu.fund-books/assets/js/2.67d873fc.js" defer></script><script src="/acu.fund-books/assets/js/10.38c52b8d.js" defer></script>
+https://docs.travis-ci.com/user/deployment/pages/#setting-the-github-token</p> <p>也可以加密 <code>$GITHUB_TOKEN</code>：</p> <div class="language- extra-class"><pre class="language-text"><code>$ sudo gem install travis
+$ travis encrypt GITHUB_TOKEN=secret-value-of-github-token
+secure: &quot;.... encrypted data ....&quot;
+</code></pre></div><p>把这一行加入.travis.yml:</p> <div class="language- extra-class"><pre class="language-text"><code>env:
+  global:
+    - secure: &quot;.... encrypted data ....&quot;
+</code></pre></div><p>本里面就可以使用环境变量 $GITHUB_TOKEN 了，Travis 会在运行时自动对它解密。</p> <p>travis encrypt命令的--add参数会把输出自动写入.travis.yml，省掉了修改env字段的步骤。
+<code>$ travis encrypt GITHUB_TOKEN=secret-value-of-github-token --add</code></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/acu.fund-books/assets/js/app.3d133664.js" defer></script><script src="/acu.fund-books/assets/js/2.67d873fc.js" defer></script><script src="/acu.fund-books/assets/js/10.ddd521e0.js" defer></script>
   </body>
 </html>
