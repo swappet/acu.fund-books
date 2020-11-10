@@ -118,7 +118,43 @@ module.exports = {
 ```
 
 # 支持 PWA
+config.js 文件中增加:
+```
+head: [ // 注入到当前页面的 HTML <head> 中的标签
+  ['link', { rel: 'manifest', href: '/photo.jpg' }],
+  ['link', { rel: 'apple-touch-icon', href: '/photo.jpg' }],
+],
+serviceWorker: true // 是否开启 PWA
+```
+public 文件夹下新建 manifest.json 文件:
+```
+{
+  "name": "测试三",
+  "short_name": "测试三",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#2196f3",
+  "description": "测试三的个人主页",
+  "theme_color": "blue",
+  "icons": [
+    {
+      "src": "./logo.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web"
+    },
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=acu.fund"
+    }
+  ]
+}
 
+```
 # 首页
 默认的主题提供了一个首页（Homepage）的布局 (用于 这个网站的主页)。想要使用它，需要在你的根级 README.md 的 YAML front matter 指定 home: true。以下是一个如何使用的例子：
 ```
