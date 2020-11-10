@@ -17,22 +17,34 @@ module.exports = {
   themeConfig: {
     nav:[ // 导航栏配置
       {text: 'git手册', link: 'git-manual/' },
-      {text: 'linux', link: 'linux/' },
+      {text: 'linux手册', link: 'linux/' },
       {text: '参考', link: '/refers/'},
       {text: '官网', link: 'https://acu.fund'}      
     ],
     sidebar:  { // 侧边栏配置 
-      'git-manual/': [
-        '',      /* /git-manual/ */
-        'vuepress', /* /git-manual/vuepress.html */ 
-        'gitbook'
-        // ['gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
+     'git-manual/': [
+        {
+          title: 'git手册',
+          collapsable: false,
+          children: [
+            '',      /* /git-manual/ */
+            'vuepress', /* /git-manual/vuepress.html */ 
+            // 'gitbook'
+            ['gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
+          ]
+        }
       ],
-      'linux/': [
-        '',      /* /linux/ */
-        'certbot-auto', /* /linux/certbot-auto.html */ 
-        'nginx-docker-https', 
-        'nginx-in-docker' 
+     'linux/': [
+        {
+          title: 'linux手册',
+          collapsable: false,
+          children: [
+            '',      /* /linux/ */
+            'certbot-auto', /* /linux/certbot-auto.html */ 
+            'nginx-docker-https', 
+            'nginx-in-docker' 
+          ]
+        }
       ],
       '/':[
         '',        /* / */
