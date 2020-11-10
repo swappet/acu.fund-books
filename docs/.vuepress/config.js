@@ -18,7 +18,7 @@ module.exports = {
     sidebar: [
       '/',
       '/git-manual',
-      ['/gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
+      ['/git-manual/gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
     ], // 侧边栏配置
     sidebarDepth: 2, // 侧边栏显示2级
   }
