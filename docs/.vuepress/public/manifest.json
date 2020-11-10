@@ -1,0 +1,25 @@
+{
+  "name": "测试三",
+  "short_name": "测试三",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#2196f3",
+  "description": "测试三的个人主页",
+  "theme_color": "blue",
+  "icons": [
+    {
+      "src": "./photo.jpg",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web"
+    },
+    {
+      "platform": "ACU",
+      "url": "https://acu.fund"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "acu.fund-books",
+  "version": "1.0.0",
+  "description": "blockchain and open source book of ACU.Fund with docsify and github.io base on WTFPL.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swappet/acu.fund-books.git"
+  },
+  "keywords": [
+    "blockchain",
+    "BTC",
+    "open",
+    "source",
+    "ETH",
+    "STEEM",
+    "WTFPL"
+  ],
+  "author": "acu.fund@pm.me",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/swappet/acu.fund-books/issues"
+  },
+  "homepage": "https://github.com/swappet/acu.fund-books#readme"
+}
