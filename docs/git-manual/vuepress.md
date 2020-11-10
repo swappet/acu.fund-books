@@ -117,6 +117,27 @@ module.exports = {
 </script>
 ```
 
+# 首页
+默认的主题提供了一个首页（Homepage）的布局 (用于 这个网站的主页)。想要使用它，需要在你的根级 README.md 的 YAML front matter 指定 home: true。以下是一个如何使用的例子：
+```
+---
+home: true
+heroImage: /logo.png
+heroText: ACU Fund 文档库
+tagline: 关于区块链和开源的系列文档
+actionText: git手册 →
+actionLink: git-manual/vuepress.html
+features:
+- title: 区块链
+  details: 区块链区块链区块，链区块链区块链区块链区块链区块，链区块链区块链。
+- title: 开源社区
+  details: 开源开源开源开源开源，开源开源开源开源开源开源，开源。
+- title: 亚链社
+  details: 亚洲区块链爱好者的社区，亚洲区块链爱好者的社区亚洲区块链爱好者的社区，亚洲区块链爱好者的社区。
+footer: WTFPL Licensed | Copyright © 2020-present ACU.Fund
+--- 
+```
+
 # 支持 PWA
 config.js 文件中增加:
 ```
@@ -155,23 +176,52 @@ public 文件夹下新建 manifest.json 文件:
 }
 
 ```
-# 首页
-默认的主题提供了一个首页（Homepage）的布局 (用于 这个网站的主页)。想要使用它，需要在你的根级 README.md 的 YAML front matter 指定 home: true。以下是一个如何使用的例子：
+
+最后在 iPhone 的 safrai 浏览器中打开本网站，点击 `+添加到主屏幕` 就能在桌面看到一个像原生 App 一样的图标。
+
+#  Github Pages and Travis CI 部署
+
+## GitHub Pages
+ `Github Pages` 是 Github 提供的、用于搭建个人网站的静态站点托管服务。很多人用它搭建个人博客。这种方式的好处是免费、方便，坏处是速度可能会有些慢、不能被国内的搜索引擎收录。
+
+注册登录：https://github.com/
+
+在 docs/.vuepress/config.js 中设置正确的 base:  
+1. 发布到 https://<USERNAME>.github.io/，则可省略这一步，因为 base 默认即是 "/"。  
+2. 发布到 https://<USERNAME>.github.io/<REPO>/（也就是说仓库在 https://github.com/<USERNAME>/<REPO>），则将 base 设置为 "/<REPO>/"。
+
+在项目中创建一个如下的 deploy.sh 文件:
 ```
----
-home: true
-heroImage: /logo.png
-heroText: ACU Fund 文档库
-tagline: 关于区块链和开源的系列文档
-actionText: git手册 →
-actionLink: git-manual/vuepress.html
-features:
-- title: 区块链
-  details: 区块链区块链区块，链区块链区块链区块链区块链区块，链区块链区块链。
-- title: 开源社区
-  details: 开源开源开源开源开源，开源开源开源开源开源开源，开源。
-- title: 亚链社
-  details: 亚洲区块链爱好者的社区，亚洲区块链爱好者的社区亚洲区块链爱好者的社区，亚洲区块链爱好者的社区。
-footer: WTFPL Licensed | Copyright © 2020-present ACU.Fund
---- 
+#!/usr/bin/env sh
+
+# 确保脚本抛出遇到的错误
+set -e
+
+# 生成静态文件
+npx npm run build
+
+# 进入生成的文件夹
+cd docs/.vuepress/dist
+
+# 如果是发布到自定义域名
+echo 'docs.acu.fund' > CNAME
+
+git init
+git add -A
+git commit -m 'deploy'
+
+# 如果部署到 https://<USERNAME>.github.io , 需要创建 <USERNAME>.github.io 库
+# git push -f git@github.com:swappet/swappet.github.io.git master
+
+# 如果发布到 https://<USERNAME>.github.io/<REPO>  REPO=github上的项目
+git push -f git@github.com:swappet/acu.fund-books.git master:gh-pages
+
+cd -
 ```
+
+
+::: tip 提示
+可以在持续集成的设置中，设置在每次 push 代码时自动运行上述脚本。
+:::
+
+## Travis CI

@@ -16,7 +16,7 @@ git init
 git add -A
 git commit -m 'deploy'
 
-# 如果部署到 https://<USERNAME>.github.io
+# 如果部署到 https://<USERNAME>.github.io , 需要创建 swappet.github.io 库
 # git push -f git@github.com:swappet/swappet.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>  REPO=github上的项目
