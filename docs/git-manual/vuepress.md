@@ -50,32 +50,32 @@ module.exports = {
   description: 'blockchain and open source book of ACU.Fund with vuepress and github.io base on WTFPL.',
   serviceWorker: true, // 是否开启 PWA
   head: [ // 注入到当前页面的 HTML <head> 中的标签
-    ['link', { rel: 'icon', href: '/logo.png' }], // 增加一个自定义的 favicon(网页标签的图标)
-    ['link', { rel: 'manifest', href: '/logo.png' }],
-    ['link', { rel: 'apple-touch-icon', href: '/logo.png' }],
+    ['link', { rel: 'icon', href: 'logo.png' }], // 增加一个自定义的 favicon(网页标签的图标)
+    ['link', { rel: 'manifest', href: 'logo.png' }],
+    ['link', { rel: 'apple-touch-icon', href: 'logo.png' }],
     ['meta', { 'http-quiv': 'pragma', cotent: 'no-cache'}],
     ['meta', { 'http-quiv': 'pragma', cotent: 'no-cache,must-revalidate'}],
     ['meta', { 'http-quiv': 'expires', cotent: '0'}]
   ],
   serviceWorker: true, // 是否开启 PWA
-  base: '/', // 这是部署到github相关的配置
+  base: '/acu.fund-books/', // 这是部署到github相关的配置
   markdown: {
     lineNumbers: false // 代码块显示行号
   },
   themeConfig: {
     nav:[ // 导航栏配置
-      {text: 'git手册', link: '/git-manual/' },
+      {text: 'git手册', link: 'git-manual/' },
       {text: '参考', link: '/refers/'},
       {text: '官网', link: 'https://acu.fund'}      
     ],
     sidebar: [ // 侧边栏配置
       {
-        '/git-manual/': [
+        'git-manual/': [
             {
               title: 'git手册',
               children: [
-                '/git-manual/gitbook.html',
-                '/git-manual/vuepress.html'
+                'git-manual/gitbook.html',
+                'git-manual/vuepress.html'
               ]
             }
           ] 
@@ -94,18 +94,18 @@ module.exports = {
 两个命令:
 ```
   "scripts": {
-    "start": "vuepress dev docs",
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "deploy": "bash deploy.sh" 
+    "docs:start": "vuepress dev docs",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "bash deploy.sh" 
   }
 ```
 
 ## 开始写作
-`$ npm run dev`
+`$ npm run docs:dev`
 
 ## 构建静态文件
-`$ npm run build`
+`$ npm run docs:build`
 
 ##  Markdown 语法整理大集合
 参考：[ Markdown 语法整理大集合](https://www.jianshu.com/p/b03a8d7b1719)
@@ -122,7 +122,7 @@ module.exports = {
 ```
 ---
 home: true
-heroImage: /logo.png
+heroImage: logo.png
 heroText: ACU Fund 文档库
 tagline: 关于区块链和开源的系列文档
 actionText: git手册 →
@@ -142,8 +142,8 @@ footer: WTFPL Licensed | Copyright © 2020-present ACU.Fund
 config.js 文件中增加:
 ```
 head: [ // 注入到当前页面的 HTML <head> 中的标签
-  ['link', { rel: 'manifest', href: '/photo.jpg' }],
-  ['link', { rel: 'apple-touch-icon', href: '/photo.jpg' }],
+  ['link', { rel: 'manifest', href: 'logo.png' }],
+  ['link', { rel: 'apple-touch-icon', href: 'logo.png' }],
 ],
 serviceWorker: true // 是否开启 PWA
 ```
@@ -198,13 +198,13 @@ public 文件夹下新建 manifest.json 文件:
 set -e
 
 # 生成静态文件
-npx npm run build
+npx npm run docs:build
 
 # 进入生成的文件夹
 cd docs/.vuepress/dist
 
 # 如果是发布到自定义域名
-echo 'docs.acu.fund' > CNAME
+# echo 'docs.acu.fund' > CNAME
 
 git init
 git add -A
@@ -225,3 +225,21 @@ cd -
 :::
 
 ## Travis CI
+在项目的根目录创建一个名为 .travis.yml 的文件；
+```
+language: node_js
+node_js:
+  - lts/*
+install:
+  - yarn install # npm ci
+script:
+  - yarn docs:build # npm run docs:build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: docs/.vuepress/dist
+  github_token: $GITHUB_TOKEN # 在 GitHub 中生成，用于允许 Travis 向你的仓库推送代码。在 Travis 的项目设置页面进行配置，设置为 secure variable
+  keep_history: true
+  on:
+    branch: master
+```
