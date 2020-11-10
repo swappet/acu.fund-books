@@ -5,8 +5,6 @@ heroText: ACU Fund 文档库
 tagline: 关于区块链和开源的系列文档
 actionText: git手册 →
 actionLink: git-manual/vuepress.html
-sidebar: auto
-sidebarDepth: 2
 features:
 - title: 区块链
   details: 区块链区块链区块，链区块链区块链区块链区块链区块，链区块链区块链。
