@@ -15,6 +15,8 @@ Certbot 会启动一个临时服务器来完成验证（会占用80端口或443�
 填写自己的邮箱，域名（可以填多个）
 `sudo ./certbot-auto certonly --standalone --email huaren.news@pm.me -d huaren.news -d www.huaren.news -d steemconnect.huaren.news -d steemauto.huaren.news -d hiveauto.huaren.news -d steemd.huaren.news -d steem.huaren.news -d steemwallet.huaren.news -d steemsigner.huaren.news -d steemkeys.huaren.news -d hiveconnect.huaren.news -d hivekey.huaren.news -d sexwallet.huaren.news -d hivewallet.huaren.news `
 
+`sudo ./certbot-auto certonly --standalone --email acu.fund@pm.me -d acu.fund -d www.acu.fund -d pot.acu.fund -d docs.acu.fund -d oracle.acu.fund -d union.acu.fund -d gas.acu.fund -d winners.acu.fund -d invite.acu.fund -d mint.acu.fund -d swap.acu.fund`
+
 # 备份pem文件
 文件保存在 /etc/letsencrypt/live/ 下面的域名目录下:`cp -arf /etc/letsencrypt/live/huaren.news huaren.news.certbot`
 

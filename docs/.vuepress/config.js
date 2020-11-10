@@ -44,8 +44,8 @@ module.exports = {
           children: [
             '',      /* /git-manual/ */
             'vuepress', /* /git-manual/vuepress.html */ 
-            // 'gitbook'
-            ['gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
+            'gitbook'
+            // ['gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
           ]
         }
       ],
@@ -62,7 +62,7 @@ module.exports = {
         }
       ],
       '/':[
-        '',        /* / */
+        ''        /* / */
         // 'contact', /* /contact.html */
         // 'about'    /* /about.html */ 
       ]
