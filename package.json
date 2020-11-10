@@ -6,7 +6,7 @@
   "scripts": {
     "docs:start": "vuepress dev docs",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "docs:build": "cp README.md docs/ && vuepress build docs",
     "docs:deploy": "bash deploy.sh" 
   },
   "repository": {
