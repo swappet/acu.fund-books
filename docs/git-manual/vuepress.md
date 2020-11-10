@@ -4,7 +4,7 @@ sidebar: auto
 sidebarDepth: 2
 ---
 
-VuePress 由两部分组成：第一部分是一个[极简静态网站生成器 (opens new window)](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/core)，它包含由 Vue 驱动的[主题系统](https://www.vuepress.cn/theme/)和[插件 API](https://www.vuepress.cn/plugin/)，另一个部分是为书写技术文档而优化的[默认主题](https://www.vuepress.cn/theme/default-theme-config.html)，它的诞生初衷是为了支持 Vue 及其子项目的文档需求。
+[VuePress](https://www.vuepress.cn/) 由两部分组成：第一部分是一个[极简静态网站生成器 (opens new window)](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/core)，它包含由 Vue 驱动的[主题系统](https://www.vuepress.cn/theme/)和[插件 API](https://www.vuepress.cn/plugin/)，另一个部分是为书写技术文档而优化的[默认主题](https://www.vuepress.cn/theme/default-theme-config.html)，它的诞生初衷是为了支持 Vue 及其子项目的文档需求。
 
 每一个由 VuePress 生成的页面都带有预渲染好的 HTML，也因此具有非常好的加载性能和搜索引擎优化（SEO）。同时，一旦页面被加载，Vue 将接管这些静态内容，并将其转换成一个完整的单页应用（SPA），其他的页面则会只在用户浏览到的时候才按需加载。
 
@@ -34,14 +34,29 @@ $ npx npm run dev
 
 ## 创建文件夹和文件
 ```
-myvuepress
+myvuepress 
+├── deploy.sh 
 ├─── docs
 │   ├── README.md
 │   └── .vuepress
 │       ├── public
 │       └── config.js
+│   └── git-manual
+│       ├── README.md
+│       ├── gitbook.md
+│       └── vuepress.md
 └── package.json
 ```
+
+docs/.vuepress/public: 静态资源目录。
+docs/.vuepress/config.js: 配置文件的入口文件，也可以是 YML 或 toml。
+
+目录结构： 
+| 文件的相对路径 | 页面路由地址）  |
+|  -  |  -  |
+|  /docs/README.md  |  /  |   
+|  /git-manual/README.md  |  /git-manual/  |
+|  /git-manual/vuepress.md  |  /git-manual/vuepress.html  |  
 
 ### config.js
 ```
@@ -136,6 +151,31 @@ features:
   details: 亚洲区块链爱好者的社区，亚洲区块链爱好者的社区亚洲区块链爱好者的社区，亚洲区块链爱好者的社区。
 footer: WTFPL Licensed | Copyright © 2020-present ACU.Fund
 --- 
+```
+
+# 侧边栏
+想要使 [侧边栏（Sidebar）](https://www.vuepress.cn/theme/default-theme-config.html#%E4%BE%A7%E8%BE%B9%E6%A0%8F) 生效，需要配置 themeConfig.sidebar，基本的配置，需要一个包含了多个链接的数组。
+## 自动生成侧栏
+如果希望自动生成一个仅仅包含了当前页面标题（headers）链接的侧边栏，可通过 YAML front matter 来实现(.md文件开头设置)：
+```
+---
+sidebar: auto
+---
+```
+禁用：`sidebar: false`  
+
+# 上 / 下一篇链接
+上一篇和下一篇文章的链接将会自动地根据当前页面的侧边栏的顺序来获取。可以通过 themeConfig.nextLinks 和 themeConfig.prevLinks 来全局禁用它们：
+```
+// .vuepress/config.js
+module.exports = {
+  themeConfig: {
+    // 默认值是 true 。设置为 false 来禁用所有页面的 下一篇 链接
+    nextLinks: false,
+    // 默认值是 true 。设置为 false 来禁用所有页面的 上一篇 链接
+    prevLinks: false
+  }
+}
 ```
 
 # 支持 PWA
@@ -266,4 +306,10 @@ env:
 本里面就可以使用环境变量 $GITHUB_TOKEN 了，Travis 会在运行时自动对它解密。
 
 travis encrypt命令的--add参数会把输出自动写入.travis.yml，省掉了修改env字段的步骤。
-`$ travis encrypt GITHUB_TOKEN=secret-value-of-github-token --add`
+`$ travis encrypt GITHUB_TOKEN=secret-value-of-github-token --add`  
+
+# 多语言支持
+https://www.vuepress.cn/guide/i18n.html#%E7%AB%99%E7%82%B9%E5%A4%9A%E8%AF%AD%E8%A8%80%E9%85%8D%E7%BD%AE
+
+# 其他部署
+https://www.vuepress.cn/guide/deploy.html#%E9%83%A8%E7%BD%B2

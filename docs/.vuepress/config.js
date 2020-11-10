@@ -9,8 +9,7 @@ module.exports = {
     ['meta', { 'http-quiv': 'pragma', cotent: 'no-cache'}],
     ['meta', { 'http-quiv': 'pragma', cotent: 'no-cache,must-revalidate'}],
     ['meta', { 'http-quiv': 'expires', cotent: '0'}]
-  ],
-  serviceWorker: true, // 是否开启 PWA
+  ], 
   base: '/acu.fund-books/', // 部署到github相关的配置
   markdown: {
     lineNumbers: false // 代码块显示行号
@@ -21,23 +20,19 @@ module.exports = {
       {text: '参考', link: '/refers/'},
       {text: '官网', link: 'https://acu.fund'}      
     ],
-    // sidebar: [ // 侧边栏配置
-    //   {
-    //     'git-manual/': [
-    //         {
-    //           title: 'git手册',
-    //           children: [
-    //             'git-manual/gitbook.html',
-    //             'git-manual/vuepress.html'
-    //           ]
-    //         }
-    //       ] 
-    //   },
-      // '/',
-      // 'git-manual/',
-      // ['git-manual/gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
-    // ],
-    sidebar: 'auto', // 侧边栏配置
+    sidebar: [ // 侧边栏配置 
+      'git-manual/': [
+        '',      /* /git-manual/ */
+        'vuepress', /* /git-manual/vuepress.html */ 
+        ['gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
+      ],
+      '/':[
+        '',        /* / */
+        'contact', /* /contact.html */
+        'about'    /* /about.html */ 
+      ]
+    ],
+    // sidebar: 'auto', // 侧边栏配置
     sidebarDepth: 2 // 侧边栏显示2级
   }
 };
