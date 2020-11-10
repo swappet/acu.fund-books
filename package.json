@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/swappet/acu.fund-books/issues"
   },
-  "homepage": "https://github.com/swappet/acu.fund-books#readme"
+  "homepage": "https://github.com/swappet/acu.fund-books#readme",
+  "dependencies": {
+    "vuepress": "^1.7.1"
+  }
 }
