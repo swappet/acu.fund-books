@@ -1,4 +1,9 @@
-<h1> 基于 VuePress 制作 Github pages 上的Markdown电子书 </h1>
+---
+title: 基于 VuePress 制作 Github pages 上的Markdown电子书
+sidebar: auto
+sidebarDepth: 2
+---
+
 
 VuePress 由两部分组成：第一部分是一个[极简静态网站生成器 (opens new window)](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/core)，它包含由 Vue 驱动的[主题系统](https://www.vuepress.cn/theme/)和[插件 API](https://www.vuepress.cn/plugin/)，另一个部分是为书写技术文档而优化的[默认主题](https://www.vuepress.cn/theme/default-theme-config.html)，它的诞生初衷是为了支持 Vue 及其子项目的文档需求。
 
@@ -11,6 +16,7 @@ VuePress 由两部分组成：第一部分是一个[极简静态网站生成器 
 ## 安装
 yarn global add vuepress # 或者：npm install -g vuepress
 
+如果部署到githua pages，最好安装在项目支持中：`$ npx npm i -S vuepress`
 ## 新建一个 markdown 文件
 echo '# Hello VuePress!' > README.md
 
