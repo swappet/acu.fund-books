@@ -225,6 +225,10 @@ cd -
 :::
 
 ## Travis CI
+安装： https://github.com/marketplace/travis-ci
+
+创建 GitHub [personal access token](https://github.com/settings/tokens)，需要授权范围 `public_repo`(公开库)/`repo`（私人库）.
+
 在项目的根目录创建一个名为 .travis.yml 的文件；
 ```
 language: node_js
@@ -243,3 +247,6 @@ deploy:
   on:
     branch: master
 ```
+
+设置 travis 的环境变量 `$GITHUB_TOKEN`：
+https://docs.travis-ci.com/user/deployment/pages/#setting-the-github-token
