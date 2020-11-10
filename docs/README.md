@@ -18,7 +18,7 @@ footer: WTFPL Licensed | Copyright © 2020-present ACU.Fund
 --- 
 
 # acu.fund-books
-blockchain and open source book of ACU.Fund with docsify and github.io base on WTFPL.
+blockchain and open source book of ACU.Fund with VuePress and github.io base on WTFPL.
 
 :tada: :100:
 
