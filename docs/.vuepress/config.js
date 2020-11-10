@@ -26,6 +26,12 @@ module.exports = {
         'vuepress', /* /git-manual/vuepress.html */ 
         ['gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
       ],
+      'git-manual/': [
+        '',      /* /git-manual/ */
+        'certbot-auto', /* /git-manual/certbot-auto.html */ 
+        'nginx-docker-https', 
+        'nginx-in-docker' 
+      ],
       '/':[
         '',        /* / */
         // 'contact', /* /contact.html */
