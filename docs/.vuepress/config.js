@@ -20,7 +20,7 @@ module.exports = {
       {text: '参考', link: '/refers/'},
       {text: '官网', link: 'https://acu.fund'}      
     ],
-    sidebar: [ // 侧边栏配置 
+    sidebar:  { // 侧边栏配置 
       'git-manual/': [
         '',      /* /git-manual/ */
         'vuepress', /* /git-manual/vuepress.html */ 
@@ -31,7 +31,7 @@ module.exports = {
         'contact', /* /contact.html */
         'about'    /* /about.html */ 
       ]
-    ],
+    },
     // sidebar: 'auto', // 侧边栏配置
     sidebarDepth: 2 // 侧边栏显示2级
   }
