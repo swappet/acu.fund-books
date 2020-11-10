@@ -28,8 +28,8 @@ module.exports = {
       ],
       '/':[
         '',        /* / */
-        'contact', /* /contact.html */
-        'about'    /* /about.html */ 
+        // 'contact', /* /contact.html */
+        // 'about'    /* /about.html */ 
       ]
     },
     // sidebar: 'auto', // 侧边栏配置
