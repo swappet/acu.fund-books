@@ -4,8 +4,10 @@
   "description": "blockchain and open source book of ACU.Fund with docsify and github.io base on WTFPL.",
   "main": "index.js",
   "scripts": {
+    "start": "vuepress dev docs",
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "deploy": "bash deploy.sh" 
   },
   "repository": {
     "type": "git",
@@ -21,9 +23,12 @@
     "WTFPL"
   ],
   "author": "acu.fund@pm.me",
-  "license": "WTFPL",
+  "license": "WTFPL", 
   "bugs": {
     "url": "https://github.com/swappet/acu.fund-books/issues"
   },
-  "homepage": "https://github.com/swappet/acu.fund-books#readme"
+  "homepage": "https://github.com/swappet/acu.fund-books#readme",
+  "dependencies": {
+    "vuepress": "^1.7.1"
+  }
 }
