@@ -21,14 +21,14 @@ module.exports = {
       {text: '官网', link: 'https://acu.fund'}      
     ],
     sidebar:  { // 侧边栏配置 
-      'git-manual/': [
+      '/git-manual/': [
         '',      /* /git-manual/ */
         'vuepress', /* /git-manual/vuepress.html */ 
         ['gitbook', '基于 Gitbook 制作 Github pages 上的Markdown电子书']
       ],
-      'git-manual/': [
-        '',      /* /git-manual/ */
-        'certbot-auto', /* /git-manual/certbot-auto.html */ 
+      '/linux/': [
+        '',      /* /linux/ */
+        'certbot-auto', /* /linux/certbot-auto.html */ 
         'nginx-docker-https', 
         'nginx-in-docker' 
       ],

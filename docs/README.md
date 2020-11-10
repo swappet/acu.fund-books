@@ -3,6 +3,8 @@ home: true
 heroImage: logo.png
 heroText: ACU Fund 文档库
 tagline: 关于区块链和开源的系列文档
+sidebar: auto
+sidebarDepth: 2
 actionText: git手册 →
 actionLink: git-manual/vuepress.html
 features:
