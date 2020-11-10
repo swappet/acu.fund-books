@@ -164,6 +164,55 @@ sidebar: auto
 ```
 禁用：`sidebar: false`  
 
+## 多个侧边栏
+为不同的页面组来显示不同的侧边栏，首先，将页面文件组织成下述的目录结构：
+```
+.
+├─ README.md
+├─ contact.md
+├─ about.md
+├─ foo/
+│  ├─ README.md
+│  ├─ one.md
+│  └─ two.md
+└─ bar/
+   ├─ README.md
+   ├─ three.md
+   └─ four.md
+```
+接着，遵循以下的侧边栏配置：
+```
+// .vuepress/config.js
+module.exports = {
+  themeConfig: {
+    sidebar: {
+      '/foo/': [
+        '',     /* /foo/ */
+        'one',  /* /foo/one.html */
+        'two'   /* /foo/two.html */
+      ],
+
+      '/bar/': [
+        '',      /* /bar/ */
+        'three', /* /bar/three.html */
+        'four'   /* /bar/four.html */
+      ],
+
+      // fallback
+      '/': [
+        '',        /* / */
+        'contact', /* /contact.html */
+        'about'    /* /about.html */
+      ]
+    }
+  }
+}
+```
+
+::: warning 警告
+确保 fallback 侧边栏被最后定义。VuePress 会按顺序遍历侧边栏配置来寻找匹配的配置。
+:::
+
 # 上 / 下一篇链接
 上一篇和下一篇文章的链接将会自动地根据当前页面的侧边栏的顺序来获取。可以通过 themeConfig.nextLinks 和 themeConfig.prevLinks 来全局禁用它们：
 ```
